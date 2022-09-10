@@ -13,7 +13,7 @@ namespace Unit._5._6.Practice
             (string Name, string Lastname, int Age, bool HasPets, string[] PetsNames, string[] FavColors) UserData;
             GetUserInfo(out UserData);
             ShowUserData(UserData);
-            
+
         }
 
         static (string Name, string Lastname, int Age, bool HasPets, string[] PetsNames, string[] FavColors) GetUserInfo(out (string Name, string Lastname, int Age, bool HasPets, string[] PetsNames, string[] FavColors) UserInfo)
@@ -68,7 +68,7 @@ namespace Unit._5._6.Practice
                 GetArrayWithPets(numberofpets, out arraypets);
                 User.PetsNames = arraypets;
             }
-            else 
+            else
             {
                 User.PetsNames = null;
             }
@@ -99,7 +99,7 @@ namespace Unit._5._6.Practice
                     inputPetName = Console.ReadLine();
 
                 } while (CheckInpValue(inputPetName, out petsNames[i]));
-                
+
             }
 
             arrayOfPetsNames = petsNames;
@@ -127,17 +127,15 @@ namespace Unit._5._6.Practice
         {
             if (int.TryParse(number, out int intnum))
             {
-                if(intnum > 0)
+                if (intnum > 0 && intnum < 200)
                 {
                     corrnumber = intnum;
                     return false;
                 }
             }
-            {
-                corrnumber = 0;   // не понимаю зачем здесь нужны скобки {}
-                Console.WriteLine("Введенные данные не корректны!");
-                return true;
-            }
+            corrnumber = 0;
+            Console.WriteLine("Введенные данные не корректны!");
+            return true;
         }
 
         static bool CheckInpValue(string input, out string corrinput)
@@ -154,12 +152,12 @@ namespace Unit._5._6.Practice
                 corrinput = null;
                 return true;
             }
-            else 
+            else
             {
                 corrinput = input;
                 return false;
             }
-                
+
         }
 
         static void ShowUserData((string Name, string Lastname, int Age, bool HasPets, string[] PetsNames, string[] FavColors) User)
@@ -199,5 +197,5 @@ namespace Unit._5._6.Practice
         }
 
     }
-    
+
 }
